@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <%= form_with(model: organisation, local: true) do |form| %>
+    <% if organisation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(organisation.errors.count, "error") %> prohibited this organisation from being saved:</h2>
+
+        <ul>
+        <% organisation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+        <%= form.label :org_name %>
+        <%= form.text_field :org_name, id: :organisation_org_name, class: "form-control" %>
+    </div>
+    <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+        <%= form.label :org_code %>
+        <%= form.text_field :org_code, id: :organisation_org_code, class: "form-control" %>
+    </div>
+    <div class="clearfix"></div>
+
+        <h2>Address Details</h2>
+        <%= form.fields_for :address do |address_fields| %>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :h_no %>
+            <%= address_fields.text_field :h_no, class: "form-control" %>
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :street %>
+            <%= address_fields.text_field :street, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :landmark %>
+            <%= address_fields.text_field :landmark, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :village %>
+            <%= address_fields.text_field :village, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :mandle %>
+            <%= address_fields.text_field :mandle, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :city %>
+            <%= address_fields.text_field :city, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :state %>
+            <%= address_fields.text_field :state, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :country %>
+            <%= address_fields.text_field :country, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :pincode %>
+            <%= address_fields.text_field :pincode, class: "form-control" %>
+          </div>
+        <% end %>
+         <div class="col-xs-10">
+            <%= form.submit "Submit", class: "btn btn-default" %>
+            <%= link_to 'Back', organisations_path, class: "btn btn-info" %>
+            <%= link_to 'Show', organisation, class: "btn btn-success" if organisation.persisted? %>
+        </div>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+</div>

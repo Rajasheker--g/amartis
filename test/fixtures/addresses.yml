@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  h_no: MyString
+  street: MyString
+  landmark: MyString
+  village: MyString
+  mandle: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  pincode: MyString
+
+two:
+  h_no: MyString
+  street: MyString
+  landmark: MyString
+  village: MyString
+  mandle: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  pincode: MyString

@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <%= form_with(model: teacher, local: true) do |form| %>
+      <% if teacher.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+          <ul>
+          <% teacher.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :emp_id %>
+          <%= form.number_field :emp_id, id: :teacher_emp_id, class: "form-control" %>
+      </div>
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :first_name %>
+          <%= form.number_field :first_name, id: :teacher_first_name, class: "form-control" %>
+      </div>
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :middle_name %>
+          <%= form.number_field :middle_name, id: :teacher_middle_name, class: "form-control" %>
+      </div>
+
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :last_name %>
+          <%= form.number_field :last_name, id: :teacher_last_name, class: "form-control" %>
+      </div>
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :dob %>
+          <%= form.number_field :dob, id: :teacher_dob, class: "form-control" %>
+      </div>
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :age %>
+          <%= form.number_field :age, id: :teacher_age, class: "form-control" %>
+      </div>
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :class_name %>
+          <%= form.number_field :class_name, id: :teacher_class_name, class: "form-control" %>
+      </div>
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :ph_no %>
+          <%= form.number_field :ph_no, id: :teacher_ph_no, class: "form-control" %>
+      </div>
+      <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+          <%= form.label :email %>
+          <%= form.number_field :email, id: :teacher_email, class: "form-control" %>
+      </div>
+      <%= form.hidden_field :organisation_id, id: @teacher.organisation_id %>
+      <div class="col-xs-10">
+            <%= form.submit "Submit", class: "btn btn-default" %>
+            <%= link_to 'Back', teachers_path, class: "btn btn-info" %>
+            <%= link_to 'Show', teacher, class: "btn btn-success" if teacher.persisted? %>
+      </div>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+</div>

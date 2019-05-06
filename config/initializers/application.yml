@@ -1,0 +1,14 @@
+development:
+  TWILIO_ACCOUNT_SID: 'ACe0f1aefb15606e489bf19fa6cf21f28f'
+  TWILIO_AUTH_TOKEN: '69e5bcc1a2e3f7b4ce5ee3e5cdf5c814'
+  emergecy_code: "a4c+KSyy7S4mlQJsVi4m+s0j70Yekm4ZBqWKTCmC for raguda"
+  TWILIO_NUMBER: '+18088244643'
+  AGENT_NUMBER: '+18088244643'
+
+test:
+  TWILIO_ACCOUNT_SID: 'ACe0f1aefb15606e489bf19fa6cf21f28f'
+  TWILIO_AUTH_TOKEN: '69e5bcc1a2e3f7b4ce5ee3e5cdf5c814'
+
+production:
+  TWILIO_ACCOUNT_SID: 'ACe0f1aefb15606e489bf19fa6cf21f28f'
+  TWILIO_AUTH_TOKEN: '69e5bcc1a2e3f7b4ce5ee3e5cdf5c814'

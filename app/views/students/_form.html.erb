@@ -1,0 +1,124 @@
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<div class="container">
+  <div class="row">
+    <%= form_with(model: student, local: true) do |form| %>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= form.label :roll_no %>
+            <%= form.number_field :roll_no, id: :student_roll_no, class: "form-control", required: true %>
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= form.label :first_name %>
+            <%= form.text_field :first_name, id: :student_first_name, class: "form-control", required: true %>
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= form.label :middle_name %>
+            <%= form.text_field :middle_name, id: :student_middle_name, class: "form-control" %>
+        </div>
+        <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= form.label :last_name %>
+            <%= form.text_field :last_name, id: :student_last_name, class: "form-control" %>
+        </div>
+        <div class="form-group col-xs-10 col-sm-10 col-md-4 col-lg-4">
+            <%= form.label :dob %>
+            <%= form.text_field :dob, id: :student_dob, class: "form-control", required: true %>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-4 col-lg-4">
+            <%= form.label :age %>
+            <%= form.number_field :age, id: :student_age, class: "form-control", required: true %>
+        </div>
+        <div class="clearfix"></div>
+        <div class="form-group col-xs-10 col-sm-10 col-md-4 col-lg-4">
+            <%= form.label :teacher_name %>
+            <%= form.select :teacher_id, options_from_collection_for_select(Teacher.teachers_list, :id, :full_name_and_class_name, @student.teacher_id), {prompt: false}, {class: "form-control"} %>
+        </div>
+        <div class="clearfix"></div>
+
+        <h2>Father Details</h2>
+        <%= form.fields_for :parent, @parent do |parent_fields| %>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= parent_fields.label :first_name %>
+            <%= parent_fields.text_field :first_name, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= parent_fields.label :middle_name %>
+            <%= parent_fields.text_field :middle_name, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= parent_fields.label :last_name %>
+            <%= parent_fields.text_field :last_name, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= parent_fields.label :age %>
+            <%= parent_fields.text_field :age, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= parent_fields.label :ph_no %>
+            <%= parent_fields.text_field :ph_no, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= parent_fields.label :govt_proof %>
+            <%= parent_fields.text_field :govt_proof, class: "form-control", required: true %>
+          </div>
+        <% end %>
+
+        <div class="clearfix"></div>
+
+        <h2>Address Details</h2>
+        <%= form.fields_for :address, @address do |address_fields| %>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :h_no %>
+            <%= address_fields.text_field :h_no, class: "form-control", required: true %>
+          </div>
+
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :street %>
+            <%= address_fields.text_field :street, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :landmark %>
+            <%= address_fields.text_field :landmark, class: "form-control" %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :village %>
+            <%= address_fields.text_field :village, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :mandle %>
+            <%= address_fields.text_field :mandle, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :city %>
+            <%= address_fields.text_field :city, class: "form-control", required: true %>
+          </div>
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :state %>
+            <%= address_fields.text_field :state, class: "form-control", required: true %>
+          </div>
+          <!-- <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4"> -->
+            <%#= address_fields.label :country %>
+            <%#= address_fields.text_field :country, class: "form-control", required: true, value: "Telangana" %>
+          <!-- </div> -->
+          <div class="form-group col-xs-10 col-sm-4 col-md-4 col-lg-4">
+            <%= address_fields.label :pincode %>
+            <%= address_fields.text_field :pincode, class: "form-control", required: true %>
+          </div>
+        <% end %>
+        <div class="col-xs-10">
+            <%= form.submit "Submit", class: "btn btn-default" %>
+            <%= link_to 'Back', students_path, class: "btn btn-info" %>
+            <%= link_to 'Show', student, class: "btn btn-success" if student.persisted? %>
+        </div>
+    <% end %>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<script type="text/javascript">
+  $( "#student_dob" ).datepicker({
+      dateFormat : 'mm/dd/yy',
+      changeMonth : true,
+      changeYear : true,
+      yearRange: '-20y:c+nn'    
+  });
+</script>

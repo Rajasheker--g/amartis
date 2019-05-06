@@ -1,0 +1,50 @@
+<style type="text/css">
+    
+.logo {
+  padding-top: 0px;
+}
+
+</style>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand logo" href="#"><%= image_tag("logo.png")%></a>
+    </div>
+    <ul class="nav navbar-nav" id="navbar-headers">
+      <li><%= link_to 'Home', authenticated_root_path %></li>
+      <li><%= link_to 'Student', students_path %></li>
+      <li><%= link_to 'Organisation', organisations_path %></li>
+      <li><%= link_to 'Teacher', teachers_path %></li>
+      <li>
+        <% if user_signed_in? %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <%= link_to "sign in", new_user_session_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if user_signed_in? %>
+          <%= link_to current_user.email, new_user_session_path %>
+        <% end %>
+      </li>
+      <li>
+        <% if user_signed_in? && (can? :manage, current_user) %>
+          <%= link_to "Manage Users", show_users_path %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash_alert').remove();
+  }, 5000);
+
+  $("#navbar-headers li").on("click", function() {
+    $("#navbar-headers li").removeClass("active");
+    $(this).addClass("active");
+  })
+
+ })
+</script>

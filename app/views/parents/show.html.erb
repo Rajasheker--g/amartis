@@ -1,0 +1,27 @@
+<p>
+  <strong>First name:</strong>
+  <%= @parent.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @parent.middle_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @parent.last_name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @parent.age %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @parent.address_id %>
+</p>
+
+<%= link_to 'Edit', edit_parent_path(@parent) %> |
+<%= link_to 'Back', parents_path %>

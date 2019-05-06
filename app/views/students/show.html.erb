@@ -1,0 +1,32 @@
+<p>
+  <strong>Roll no:</strong>
+  <%= @student.roll_no %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @student.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @student.middle_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @student.last_name %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @student.dob %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @student.age %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student), class: "btn btn-primary" %> |
+<%= link_to 'Back', students_path, class: "btn btn-info" %>

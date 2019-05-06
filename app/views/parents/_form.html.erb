@@ -1,0 +1,58 @@
+<%= form_with(model: parent, local: true) do |form| %>
+  <% if parent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parent.errors.count, "error") %> prohibited this parent from being saved:</h2>
+
+      <ul>
+      <% parent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :parent_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :middle_name %>
+    <%= form.text_field :middle_name, id: :parent_middle_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :parent_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.number_field :age, id: :parent_age %>
+  </div>
+
+  <%= form.fields_for :address do |address_fields| %>
+    <%= address_fields.label :h_no %>
+    <%= address_fields.text_field :h_no %>
+    <%= address_fields.label :street %>
+    <%= address_fields.text_field :street %>
+    <%= address_fields.label :landmark %>
+    <%= address_fields.text_field :landmark %>
+    <%= address_fields.label :village %>
+    <%= address_fields.text_field :village %>
+    <%= address_fields.label :mandle %>
+    <%= address_fields.text_field :mandle %>
+    <%= address_fields.label :city %>
+    <%= address_fields.text_field :city %>
+    <%= address_fields.label :state %>
+    <%= address_fields.text_field :state %>
+    <%= address_fields.label :country %>
+    <%= address_fields.text_field :country %>
+    <%= address_fields.label :pincode %>
+    <%= address_fields.text_field :pincode %>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
