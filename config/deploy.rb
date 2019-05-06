@@ -1,7 +1,7 @@
 set :application, "AmaraatiS"
 set :scm, :git
 # set :repository, "git@account.git.beanstalkapp.com:/account/repository.git"
-set :repo_url, "git@bitbucket.org:rajashekarg/amaraatis.git"
+set :repo_url, "git@git@github.com:Rajasheker--g/amartis.git"
 set :user, "rajashekarg"
 set :branch, "master"
 set :deploy_to, '/home/ubuntu/code/amaraatis'
